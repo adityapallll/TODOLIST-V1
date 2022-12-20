@@ -1,0 +1,46 @@
+<%- include("header"); %>
+
+    <main class="px-3">
+        <h1>
+            <%= listTitle %>
+        </h1>
+
+
+        <div class="list-group w-auto">
+
+            <% for (var i=0; i < newListItems.length; i++){ %>
+
+                <label class="list-group-item d-flex gap-3">
+                    <input class="form-check-input flex-shrink-0" type="checkbox" value="" style="font-size: 1.375em;">
+                    <span class="pt-1 form-checked-content">
+                        <strong>
+                            <%= newListItems[i] %>
+                        </strong>
+                        <small class="d-block text-muted">
+                            <svg class="bi me-1" width="1em" height="1em">
+                            </svg>
+                            <!-- 1:00–2:00pm -->
+                        </small>
+                    </span>
+                </label>
+
+                <% } %>
+
+        </div>
+
+
+        <form action="/" method="post" class="form-signin">
+
+            <div class="form-label-group">
+                <input type="text" name="newItem" class="form-control" placeholder="Add item to your list" required
+                    autofocus autocomplete="off">
+                <label for="inputEmail">Add item to your list</label>
+            </div>
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit" name="list" value=<%=listTitle %>
+                >Add</button>
+        </form>
+
+    </main>
+
+    <%- include("footer"); %>
